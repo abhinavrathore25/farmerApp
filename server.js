@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require("path");
 const bodyparser = require('body-parser');
 const PORT = 8080;
 const multer = require('multer');
@@ -11,6 +12,8 @@ app.use(cors());
 app.use(bodyparser.urlencoded({
     extended: true
 }));
+
+app.use(express.static(path.join(__dirname, "./build")));
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -39,5 +42,8 @@ app.post('/formData', upload.single('image'), (req, res) => {
     }];
     res.send('SUCCESS');
 });
+
+// This route serves the React app
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
 
 app.listen(PORT, () => console.log(`Server Listning on port ${PORT}`));

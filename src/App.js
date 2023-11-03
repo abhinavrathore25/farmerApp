@@ -4,6 +4,7 @@ import axios from 'axios';
 import { config } from "./config";
 
 function App() {
+  const BACKEND_URL = 'https://exquisite-rugelach-fd5383.netlify.app';
   const [formData, setFormData] = useState({
     name: '',
     contactNumber: '',
@@ -24,7 +25,7 @@ function App() {
   ]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/getFarmerData', config)
+    axios.get(`${BACKEND_URL}getFarmerData`, config)
       .then(res => {
         setFarmerList(res.data)
         console.log(res.data)
@@ -55,15 +56,13 @@ function App() {
     setCropList(newData);
   }
 
-  
-
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
 
-    if (name !== 'image'){
-      if(name === 'contactNumber'){
+    if (name !== 'image') {
+      if (name === 'contactNumber') {
         console.log(e.target.value);
-        if(e.target.value.length > 10){
+        if (e.target.value.length > 10) {
           return;
         }
       }
@@ -86,7 +85,7 @@ function App() {
     newForm.append('farmerData', JSON.stringify(consolidatedData));
     newForm.append('image', image);
 
-    axios.post('http://localhost:8080/formData', newForm, config)
+    axios.post(`${BACKEND_URL}formData`, newForm, config)
       .then(res => console.log(res))
       .catch(err => console.log(err));
   }
