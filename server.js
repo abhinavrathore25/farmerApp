@@ -1,7 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const path = require("path");
 const bodyparser = require('body-parser');
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const multer = require('multer');
 const cors = require('cors');
 let FARMER_DATA = [];
