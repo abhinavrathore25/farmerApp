@@ -4,7 +4,7 @@ import axios from 'axios';
 import { config } from "./config";
 
 function App() {
-  const BACKEND_URL = 'https://exquisite-rugelach-fd5383.netlify.app';
+  const BACKEND_URL = 'https://exquisite-rugelach-fd5383.netlify.app/';
   const [formData, setFormData] = useState({
     name: '',
     contactNumber: '',
