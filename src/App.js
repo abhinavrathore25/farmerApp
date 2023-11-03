@@ -4,8 +4,14 @@ import axios from 'axios';
 import { config } from "./config";
 
 function App() {
-  const BACKEND_URL = 'https://glittery-marshmallow-826369.netlify.app/';
-  // const BACKEND_URL = 'http://localhost:8080/';
+
+  let BACKEND_URL = window.location.hostname;
+  if (BACKEND_URL === "localhost") {
+    BACKEND_URL = 'http://localhost:8080/';
+  } else {
+    BACKEND_URL = 'https://glittery-marshmallow-826369.netlify.app/';
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     contactNumber: '',
