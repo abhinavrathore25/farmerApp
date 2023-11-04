@@ -13,8 +13,6 @@
   "scripts": {
     "build": "npm i",
     "dev": "nodemon server.js",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server.js"
   }
 }
