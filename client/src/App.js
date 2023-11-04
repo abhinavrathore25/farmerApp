@@ -37,7 +37,7 @@ function App() {
         setFarmerList(res.data)
         console.log(res.data)
       });
-  }, []);
+  }, [BACKEND_URL]);
 
   const addCrop = (e) => {
     e.preventDefault();
