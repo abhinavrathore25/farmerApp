@@ -12,6 +12,7 @@ function App() {
     BACKEND_URL = 'https://farmerapp-backend.onrender.com/';
   }
 
+  console.log(BACKEND_URL);
   const [formData, setFormData] = useState({
     name: '',
     contactNumber: '',
