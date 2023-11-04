@@ -12,7 +12,6 @@ function App() {
     BACKEND_URL = 'https://farmerapp-backend.onrender.com/';
   }
 
-  console.log(BACKEND_URL);
   const [formData, setFormData] = useState({
     name: '',
     contactNumber: '',
@@ -36,7 +35,6 @@ function App() {
     axios.get(`${BACKEND_URL}getFarmerData`, config)
       .then(res => {
         setFarmerList(res.data)
-        console.log(res.data)
       });
   }, [BACKEND_URL]);
 
@@ -69,7 +67,6 @@ function App() {
 
     if (name !== 'image') {
       if (name === 'contactNumber') {
-        console.log(e.target.value);
         if (e.target.value.length > 10) {
           return;
         }
@@ -105,7 +102,6 @@ function App() {
       return;
 
     const newList = cropList.filter(item => item.id !== id);
-    console.log(newList);
     setCropList(newList);
   }
 
@@ -176,7 +172,7 @@ function App() {
         {
           farmerList.map((item, index) => {
             return <div className="infoCard" key={index}>
-              <img src={item.imageUrl === '' ? `${BACKEND_URL}solid-color-image.jpeg` : item.imageUrl} alt='farmerImage' />
+              <img src={item.imageUrl === '' ? `${BACKEND_URL}uploads/solid-color-image.jpeg` : item.imageUrl} alt='farmerImage' />
               <div className="infoCardDetails">
                 <label htmlFor={`infoName${index}`}>Farmer Name: </label>
                 <input value={item.name} id={`infoName${index}`} readOnly />
