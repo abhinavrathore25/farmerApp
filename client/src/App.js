@@ -9,7 +9,7 @@ function App() {
   if (BACKEND_URL === "localhost") {
     BACKEND_URL = 'http://localhost:8080/';
   } else {
-    BACKEND_URL = 'https://glittery-marshmallow-826369.netlify.app/';
+    BACKEND_URL = 'https://farmerapp-backend.onrender.com/';
   }
 
   const [formData, setFormData] = useState({
