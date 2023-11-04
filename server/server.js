@@ -41,6 +41,7 @@ app.post('/formData', upload.single('image'), (req, res) => {
         ...formData,
         imageUrl: (fileName !== undefined) ? `https://farmerapp-backend.onrender.com/uploads/${fileName}` : ''
     }];
+    console.log(FARMER_DATA);
     res.send('SUCCESS');
 });
 
