@@ -176,7 +176,7 @@ function App() {
         {
           farmerList.map((item, index) => {
             return <div className="infoCard" key={index}>
-              <img src={item.imageUrl === '' ? 'http://localhost:8080/uploads/solid-color-image.jpeg' : item.imageUrl} alt='farmerImage' />
+              <img src={item.imageUrl === '' ? `${BACKEND_URL}solid-color-image.jpeg` : item.imageUrl} alt='farmerImage' />
               <div className="infoCardDetails">
                 <label htmlFor={`infoName${index}`}>Farmer Name: </label>
                 <input value={item.name} id={`infoName${index}`} readOnly />
